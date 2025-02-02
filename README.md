@@ -1,6 +1,3 @@
-Certainly! Here's a comprehensive README for your repository:
-
----
 
 # Agentic AI Applications
 
