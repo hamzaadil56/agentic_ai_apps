@@ -1,0 +1,33 @@
+ideation_task:
+    description: >
+        Analyze current trends and generate creative content ideas for {topic}.
+        Research emerging trends, viral content patterns, and industry developments.
+        Consider target audience preferences and engagement patterns.
+        Identify key themes and topics that resonate with the audience.
+    expected_output: >
+        A detailed analysis of current trends and 5-10 creative content ideas for {topic},
+        including rationale for why each idea would resonate with the target audience.
+    agent: ideator_and_trend_analyst
+
+content_creation_task:
+    description: >
+        Generate engaging and relevant content for {topic} based on the ideation analysis.
+        Create compelling headlines, body text, and calls-to-action.
+        Ensure content aligns with brand voice and messaging.
+    expected_output: >
+        3-5 pieces of polished content for {topic}, including headlines, main content,
+        and suggested calls-to-action. Content should be ready for social media adaptation.
+    agent: content_generator
+
+social_media_optimization_task:
+    description: >
+        Adapt and optimize the generated content for different social media platforms.
+        Consider each platform's unique features, audience preferences, and best practices.
+        Create platform-specific variations of the content.
+        Suggest optimal posting times and hashtag strategies.
+    expected_output: >
+        A file containing three short headings:
+        1. A LinkedIn post with relevant tone
+        2. A facebook post with relevant tone
+        3. An Instagram pos with relevant tone
+    agent: social_media_manager
