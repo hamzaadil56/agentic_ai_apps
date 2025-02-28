@@ -25,9 +25,9 @@ class BlogWriter():
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def blog_writer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['blog_writer'],
 			verbose=True
 		)
 
@@ -41,9 +41,9 @@ class BlogWriter():
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def blog_writing(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
+			config=self.tasks_config['blog_writing'],
 			output_file='report.md'
 		)
 
