@@ -1,9 +1,15 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 
 # If you want to run a snippet of code before or after the crew starts, 
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+
+llm = LLM(
+    model="groq/llama-3.3-70b-versatile",
+    base_url="https://api.groq.com/openai/v1/",
+    api_key='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'
+)
 
 @CrewBase
 class BlogWriter():
@@ -21,14 +27,16 @@ class BlogWriter():
 	def researcher(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher'],
-			verbose=True
+			verbose=True,
+			llm=llm
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def blog_writer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
-			verbose=True
+			config=self.agents_config['blog_writer'],
+			verbose=True,
+			llm=llm
 		)
 
 	# To learn more about structured task outputs, 
@@ -41,9 +49,9 @@ class BlogWriter():
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def blog_writing(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
+			config=self.tasks_config['blog_writing'],
 			output_file='report.md'
 		)
 
